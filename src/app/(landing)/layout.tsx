@@ -10,13 +10,22 @@ export default function LandingLayout({ children }: Props) {
   return (
     <div className="min-h-screen w-full flex flex-col relative">
       {/* Prismatic Aurora Burst - Multi-layered Gradient */}
-      {/* <div
-        className="absolute inset-0 -z-1"
+      <div
+        className="absolute inset-0 -z-20"
         style={{
           background:
             "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(244, 114, 182, 0.25), transparent 70%), #000000",
         }}
-      /> */}
+      />
+      <div
+        className="absolute inset-0 -z-10 a pointer-events-none opacity-20 bg-[url('/noisy.png')]"
+        style={{
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, white 0%, transparent 70%)",
+          maskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, white 0%, transparent 70%)",
+        }}
+      />
       {/* Your Content/Components */}
       <Navbar />
       <main className="flex-1">{children}</main>

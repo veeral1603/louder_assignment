@@ -13,7 +13,7 @@ export default function HeroSection() {
             <span>Powered by AI</span>
           </Badge>
 
-          <h2 className="font-noto-serif-display text-4xl md:text-5xl font-bold leading-tight">
+          <h2 className="font-noto-serif-display text-4xl md:text-5xl font-bold md:leading-tight ">
             Describe Your Event. Get a Complete Plan in{" "}
             <span className="underline underline-offset-5  bg-linear-to-r from-pink-500 to-pink-400 text-transparent bg-clip-text">
               Seconds.

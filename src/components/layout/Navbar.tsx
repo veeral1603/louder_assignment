@@ -47,7 +47,15 @@ export default function Navbar() {
         {/* Navlinks  */}
         <div className=" items-center md:gap-4 lg:gap-6 hidden md:flex">
           {navlinks.map((link) => (
-            <Link key={link.label} href={link.href}>
+            <Link
+              key={link.label}
+              href={link.href}
+              target={
+                link.label === "Resume" || link.label === "Portfolio"
+                  ? "_blank"
+                  : "_self"
+              }
+            >
               <span className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
                 {link.label}
               </span>
