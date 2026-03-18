@@ -123,7 +123,17 @@
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    @apply font-sans;
-  }
+}
+
+html,
+body {
+  @apply h-full w-full;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.container-sm {
+  @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
 }
