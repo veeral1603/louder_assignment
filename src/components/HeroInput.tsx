@@ -7,7 +7,7 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   GeneratePlanFormData,
-  generatePLanFormSchema,
+  generatePlanFormSchema,
 } from "@/validators/generatePlanFormSchema";
 
 export default function HeroInput() {
@@ -15,7 +15,7 @@ export default function HeroInput() {
     defaultValues: {
       eventDescription: "",
     },
-    resolver: zodResolver(generatePLanFormSchema),
+    resolver: zodResolver(generatePlanFormSchema),
   });
 
   const onSubmit = (data: GeneratePlanFormData) => {

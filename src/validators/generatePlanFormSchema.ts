@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const generatePLanFormSchema = z.object({
+export const generatePlanFormSchema = z.object({
   eventDescription: z
     .string()
     .min(30, "Please provide a more detailed description of your event.")
@@ -8,4 +8,4 @@ export const generatePLanFormSchema = z.object({
     .nonoptional("Event description is required."),
 });
 
-export type GeneratePlanFormData = z.infer<typeof generatePLanFormSchema>;
+export type GeneratePlanFormData = z.infer<typeof generatePlanFormSchema>;
