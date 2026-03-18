@@ -7,3 +7,5 @@ export const generatePLanFormSchema = z.object({
     .nonempty("Event description is required.")
     .nonoptional("Event description is required."),
 });
+
+export type GeneratePlanFormData = z.infer<typeof generatePLanFormSchema>;

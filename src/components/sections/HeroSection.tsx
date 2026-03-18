@@ -5,8 +5,8 @@ import HeroInput from "../HeroInput";
 
 export default function HeroSection() {
   return (
-    <section>
-      <div className="container-sm py-12 md:py-28 flex flex-col items-center ">
+    <section className="min-h-[calc(100vh-3.5rem)] flex md:items-center md:justify-center">
+      <div className="container-sm py-8 md:py-0  flex flex-col items-center md:-translate-y-20">
         <div className="max-w-3xl mx-auto text-left md:text-center">
           <Badge className="mb-2 bg-linear-to-b from-pink-700 to-pink-500 border-pink-500 text-white">
             <Sparkles className="size-5" />

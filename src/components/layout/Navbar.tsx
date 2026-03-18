@@ -29,7 +29,7 @@ const navlinks = [
 export default function Navbar() {
   return (
     <nav className="border-b border-border">
-      <div className="container-sm py-3 flex items-center justify-between">
+      <div className="container-sm h-14   flex items-center justify-between">
         {/* Logo  */}
         <Link href="/">
           <div className="flex items-center gap-2 text-xl md:text-2xl font-bold text-transparent bg-linear-to-br from-pink-700 to-pink-500 bg-clip-text">
