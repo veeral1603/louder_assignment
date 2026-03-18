@@ -32,15 +32,19 @@ export default function Navbar() {
       <div className="container-sm py-3 flex items-center justify-between">
         {/* Logo  */}
         <Link href="/">
-          <div className="flex items-center gap-2 text-2xl font-bold text-transparent bg-linear-to-br from-pink-700 to-pink-500 bg-clip-text">
+          <div className="flex items-center gap-2 text-xl md:text-2xl font-bold text-transparent bg-linear-to-br from-pink-700 to-pink-500 bg-clip-text">
             <span>
-              <Plane strokeWidth={2} size={34} className="text-pink-600" />
+              <Plane
+                strokeWidth={2}
+                className="text-pink-600 size-7 md:size-8"
+              />
             </span>
             <h1>AI Concierge</h1>
           </div>
         </Link>
 
-        <div className="flex items-center gap-6">
+        {/* Navlinks  */}
+        <div className=" items-center md:gap-4 lg:gap-6 hidden md:flex">
           {navlinks.map((link) => (
             <Link key={link.label} href={link.href}>
               <span className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">

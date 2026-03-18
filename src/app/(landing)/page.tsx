@@ -1,5 +1,10 @@
+import HeroSection from "@/components/sections/HeroSection";
 import React from "react";
 
 export default function LandingPage() {
-  return <div>LandingPage</div>;
+  return (
+    <div className=" w-full ">
+      <HeroSection />
+    </div>
+  );
 }
