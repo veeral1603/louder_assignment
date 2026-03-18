@@ -3,7 +3,7 @@ import ResultsContainer from "../ResultsContainer";
 
 export default function ResultsSection() {
   return (
-    <section className="-mt-[10vh] relative z-10">
+    <section className="-mt-[10vh] relative z-10 pb-12 md:pb-20">
       <div className="container-sm">
         <ResultsContainer />
       </div>

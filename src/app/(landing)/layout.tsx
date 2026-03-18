@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import React from "react";
 
@@ -19,6 +20,7 @@ export default function LandingLayout({ children }: Props) {
       {/* Your Content/Components */}
       <Navbar />
       <main className="flex-1">{children}</main>
+      <Footer />
     </div>
   );
 }

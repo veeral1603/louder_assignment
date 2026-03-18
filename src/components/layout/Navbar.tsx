@@ -28,8 +28,9 @@ const navlinks = [
 
 export default function Navbar() {
   return (
-    <nav className="border-b border-border">
-      <div className="container-sm h-14   flex items-center justify-between">
+    <nav className=" relative">
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-border to-transparent" />
+      <div className="container-sm h-14   flex items-center justify-between relative">
         {/* Logo  */}
         <Link href="/">
           <div className="flex items-center gap-2 text-xl md:text-2xl font-bold text-transparent bg-linear-to-br from-pink-700 to-pink-500 bg-clip-text">
