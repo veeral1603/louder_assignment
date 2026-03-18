@@ -1,0 +1,22 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model EventPlan {
+  id String @id @default(uuid())
+  query String
+
+  venueName String
+  location String
+  estimatedCost String
+  whyItFits String
+
+  createdAt DateTime @default(now())
+}
