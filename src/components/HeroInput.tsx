@@ -9,6 +9,11 @@ import {
   GeneratePlanFormData,
   generatePlanFormSchema,
 } from "@/validators/generatePlanFormSchema";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { generateEventPLan } from "@/services/client/eventPlan.service";
+import { Spinner } from "./ui/spinner";
+import { useEventPlanLoadingStore } from "@/stores/eventPlanLoadingStore";
+import { EventPlan } from "@prisma/client";
 
 export default function HeroInput() {
   const form = useForm({
@@ -18,8 +23,41 @@ export default function HeroInput() {
     resolver: zodResolver(generatePlanFormSchema),
   });
 
+  const setIsLoading = useEventPlanLoadingStore((state) => state.setLoading);
+
+  const queryClient = useQueryClient();
+
+  const { mutate, isPending: isLoading } = useMutation({
+    onMutate: () => {
+      setIsLoading(true);
+      const resultContainer = document.getElementById("results-container");
+      if (resultContainer) {
+        resultContainer.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    mutationFn: (data: GeneratePlanFormData) =>
+      generateEventPLan(data.eventDescription),
+    onSuccess: (data) => {
+      queryClient.setQueryData(
+        ["results"],
+        (oldData: EventPlan[] | undefined) => {
+          if (!oldData) return [data];
+          return [data.data, ...oldData];
+        },
+      );
+      setIsLoading(false);
+      form.reset();
+    },
+    onError: () => {
+      alert(
+        "An error occurred while generating the event plan. Please try again.",
+      );
+      setIsLoading(false);
+    },
+  });
+
   const onSubmit = (data: GeneratePlanFormData) => {
-    console.log("Form Data:", data);
+    mutate(data);
   };
   return (
     <div className="w-full md:max-w-xl mx-auto mt-12 md:mt-16">
@@ -34,7 +72,8 @@ export default function HeroInput() {
               <Textarea
                 {...field}
                 placeholder="Plan a 10-person leadership retreat in the mountains under $4000..."
-                className="border-none bg-transparent! focus-visible:ring-0 focus-visible:ring-offset-0 text-base resize-none max-h-35"
+                className="border-none bg-transparent! focus-visible:ring-0 focus-visible:ring-offset-0 text-base resize-none max-h-35 disabled:cursor-not-allowed disabled:opacity-50"
+                disabled={isLoading}
               />
             )}
           />
@@ -46,12 +85,16 @@ export default function HeroInput() {
                 {form.formState.errors.eventDescription?.message}
               </p>
             )}
-            <Button
-              size="icon"
-              className="ml-auto rounded-full bg-pink-500 hover:bg-pink-600"
-            >
-              <ArrowUp className="w-4 h-4 text-white" />
-            </Button>
+            {isLoading && <Spinner className="size-8 ml-auto" />}
+            {!isLoading && (
+              <Button
+                size="icon"
+                className="ml-auto rounded-full bg-pink-500 hover:bg-pink-600 disabled:cursor-not-allowed"
+                disabled={isLoading}
+              >
+                <ArrowUp className="w-4 h-4 text-white" />
+              </Button>
+            )}
           </div>
         </div>
       </form>

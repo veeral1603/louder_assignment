@@ -20,7 +20,7 @@ export const EVENT_PLAN_PROMPT = `
     - Estimated cost currency must depend on input currency
     - Keep cost within or close to the user's budget if mentioned
     - Be concise but helpful
-    - "why_it_fits" should be 3 sentences max
+    - "why_it_fits" should be 2 sentences max
     - If some details are missing, make reasonable assumptions
     - "success" = false, if you cant generate a plan based on the input
 
