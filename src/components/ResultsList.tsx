@@ -28,29 +28,28 @@ export default function ResultsList() {
     );
   }
 
-  if (!data || data.length === 0) {
-    return (
-      <div className="w-full flex items-center justify-center p-8">
-        <p className="text-sm text-muted-foreground">
-          No results found. Try generating a plan!
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div className="flex flex-col gap-4">
+      {(!data || data.length === 0) && !isLoading && (
+        <div className="w-full flex items-center justify-center p-8">
+          <p className="text-sm text-muted-foreground">
+            No results found. Try generating a plan!
+          </p>
+        </div>
+      )}
       {isLoading && <LoadingCard />}
-      {data.map((result, index) => (
-        <motion.div
-          key={result.id}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: index * 0.1 }}
-        >
-          <ResultCard data={result} />
-        </motion.div>
-      ))}
+      {data &&
+        data.length > 0 &&
+        data.map((result, index) => (
+          <motion.div
+            key={result.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+          >
+            <ResultCard data={result} />
+          </motion.div>
+        ))}
     </div>
   );
 }

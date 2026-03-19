@@ -30,7 +30,6 @@ export default function HeroInput() {
 
   const { mutate, isPending: isLoading } = useMutation({
     onMutate: () => {
-      setIsLoading(true);
       const resultContainer = document.getElementById("results-container");
       if (resultContainer) {
         resultContainer.scrollIntoView({ behavior: "smooth" });
@@ -58,6 +57,7 @@ export default function HeroInput() {
   });
 
   const onSubmit = (data: GeneratePlanFormData) => {
+    setIsLoading(true);
     mutate(data);
   };
   return (
