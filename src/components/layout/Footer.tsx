@@ -5,7 +5,7 @@ import React from "react";
 export default function Footer() {
   return (
     <footer>
-      <div className="container-sm h-16  relative flex items-center justify-between">
+      <div className="container-sm p-4  relative flex items-center gap-2 md:justify-between flex-col  md:flex-row">
         <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-border to-transparent" />
 
         {/* Logo  */}

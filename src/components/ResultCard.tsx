@@ -22,7 +22,7 @@ export default function ResultCard({ data }: Props) {
 
       <CardContent className="p-5 relative z-10">
         {/* Title */}
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col gap-2 md:flex-row items-start justify-between">
           <h3 className="text-lg font-semibold text-white leading-tight">
             {data.venueName}
           </h3>
